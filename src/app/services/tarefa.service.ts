@@ -36,4 +36,24 @@ export class TarefaService {
     let collection: any[] = JSON.parse(value);
     return collection;
   }
+
+  delete(tarefa: any, callback: any) {
+    let value = localStorage.getItem(this.key);
+
+    if (value == null || value == undefined) {
+      return;
+    }
+
+    let collection: any[] = JSON.parse(value);
+
+    let resultCollection = collection.filter((item) => {
+      return item.Tarefa != tarefa.Tarefa;
+    });
+
+    localStorage.setItem(this.key, JSON.stringify(resultCollection));
+
+    if (callback != null) {
+      callback();
+    }
+  }
 }

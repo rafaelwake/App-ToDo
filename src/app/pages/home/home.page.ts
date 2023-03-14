@@ -52,4 +52,10 @@ export class HomePage {
     });
     await alert.present();
   }
+
+  delete(item: any) {
+    this.tarefaService.delete(item, () => {
+      this.showTasksInHome();
+    });
+  }
 }
