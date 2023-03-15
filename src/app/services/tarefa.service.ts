@@ -10,6 +10,7 @@ export class TarefaService {
 
   saveTask(task: any, callback: any) {
     task.status = 'Pendente';
+    task.feito = false;
     //get info from localstorage
     let value = localStorage.getItem(this.key);
 
@@ -51,6 +52,28 @@ export class TarefaService {
     });
 
     localStorage.setItem(this.key, JSON.stringify(resultCollection));
+
+    if (callback != null) {
+      callback();
+    }
+  }
+
+  atualizar(tarefa: any, callback: any) {
+    //Obter do localStorage
+    let value = localStorage.getItem(this.key);
+
+    if (value == null || value == undefined) {
+      return;
+    } else {
+      let collection: any[] = JSON.parse(value);
+      collection.forEach((item) => {
+        if (item.Tarefa == tarefa.Tarefa) {
+          item.feito = tarefa.feito;
+        }
+      });
+
+      localStorage.setItem(this.key, JSON.stringify(collection));
+    }
 
     if (callback != null) {
       callback();
