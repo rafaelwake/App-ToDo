@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title color="primary">
+    <ion-title color="primary" class="animate__animated animate__flash">
       Lista de Tarefas
     </ion-title>
   </ion-toolbar>
@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-list>
+  <ion-list class="animate__animated animate__bounceInUp">
     <ion-item *ngIf="taskCollection.length < 1">
       <ion-label>Não há tarefas</ion-label>
     </ion-item>
@@ -20,8 +20,8 @@
           <h3 *ngIf="item.feito===false">Pendente</h3>
           <h3 *ngIf="item.feito===true">Realizado</h3>
         </ion-label>
-        <!-- <ion-icon slot="start" name="information-circle" color="danger" *ngIf="!item.feito"></ion-icon> -->
-        <!-- <ion-icon slot="start" name="checkmark-circle" color="success" *ngIf="item.status"></ion-icon> -->
+        <ion-icon slot="start" name="information-circle" color="danger" *ngIf="!item.feito"></ion-icon>
+        <ion-icon slot="start" name="checkmark-circle" color="success" *ngIf="item.feito"></ion-icon>
       </ion-item>
       <ion-item-options side="start">
         <ion-item-option color="danger" (click)="delete(item)">Excluir</ion-item-option>
@@ -30,7 +30,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="showAdd()" color="primary">
+    <ion-fab-button (click)="showAdd()" color="primary" class="animate__animated animate__pulse">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
