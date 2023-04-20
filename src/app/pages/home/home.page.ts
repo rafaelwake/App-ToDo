@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { ActionSheetController, AlertController } from '@ionic/angular';
+import {
+  ActionSheetController,
+  AlertController,
+  NavController,
+} from '@ionic/angular';
 import { TarefaService } from 'src/app/services/tarefa.service';
 
 @Component({
@@ -12,11 +16,16 @@ export class HomePage {
   constructor(
     private alertController: AlertController,
     private tarefaService: TarefaService,
-    private actionSheetCtrl: ActionSheetController
+    private actionSheetCtrl: ActionSheetController,
+    private navCtrl: NavController
   ) {}
 
   ionViewDidEnter() {
     this.showTasksInHome();
+  }
+
+  doar() {
+    this.navCtrl.navigateForward('doacao');
   }
 
   showTasksInHome() {

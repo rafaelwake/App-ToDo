@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary" class="animate__animated animate__flash">
+      Doação
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <img src="../../../assets/doacao.png">
+  <ion-card-content>
+    <h2>Ajude a manter o nosso projeto</h2>
+    <b> pix </b>
+    cpf: 142.073.566.73
+  </ion-card-content>
+
+  <ion-button (click)="agradecimento('Rafael')" expand="block" fill="clear" shape="round">
+    Agradecimento ao Rafael </ion-button>
+</ion-content>

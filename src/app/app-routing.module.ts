@@ -12,6 +12,18 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'doacao',
+    loadChildren: () =>
+      import('./pages/doacao/doacao.module').then((m) => m.DoacaoPageModule),
+  },
+  {
+    path: 'doadores/:nome',
+    loadChildren: () =>
+      import('./pages/doadores/doadores.module').then(
+        (m) => m.DoadoresPageModule
+      ),
+  },
 ];
 
 @NgModule({
