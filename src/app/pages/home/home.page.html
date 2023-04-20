@@ -3,6 +3,9 @@
     <ion-title color="primary" class="animate__animated animate__flash">
       Lista de Tarefas
     </ion-title>
+    <ion-buttons slot="start" (click)="doar()">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -36,10 +39,4 @@
   </ion-fab>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="primary">
-    <ion-title class="animate__animated animate__flash ion-text-center">
-      v1.0.0
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>
+<footer-loading [loading]="loading"></footer-loading>

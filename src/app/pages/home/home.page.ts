@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { ActionSheetController, AlertController } from '@ionic/angular';
+import {
+  ActionSheetController,
+  AlertController,
+  NavController,
+} from '@ionic/angular';
 import { TarefaService } from 'src/app/services/tarefa.service';
 
 @Component({
@@ -9,18 +13,28 @@ import { TarefaService } from 'src/app/services/tarefa.service';
 })
 export class HomePage {
   taskCollection: any[] = [];
+  loading: boolean = false;
   constructor(
     private alertController: AlertController,
     private tarefaService: TarefaService,
-    private actionSheetCtrl: ActionSheetController
+    private actionSheetCtrl: ActionSheetController,
+    private navCtrl: NavController
   ) {}
 
   ionViewDidEnter() {
     this.showTasksInHome();
   }
 
+  doar() {
+    this.navCtrl.navigateForward('doacao');
+  }
+
   showTasksInHome() {
-    this.taskCollection = this.tarefaService.showTask();
+    this.loading = true;
+    setTimeout(() => {
+      this.taskCollection = this.tarefaService.showTask();
+      this.loading = false;
+    }, 2000);
   }
 
   async showAdd() {
