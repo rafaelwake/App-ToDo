@@ -13,6 +13,7 @@ import { TarefaService } from 'src/app/services/tarefa.service';
 })
 export class HomePage {
   taskCollection: any[] = [];
+  loading: boolean = false;
   constructor(
     private alertController: AlertController,
     private tarefaService: TarefaService,
@@ -29,7 +30,11 @@ export class HomePage {
   }
 
   showTasksInHome() {
-    this.taskCollection = this.tarefaService.showTask();
+    this.loading = true;
+    setTimeout(() => {
+      this.taskCollection = this.tarefaService.showTask();
+      this.loading = false;
+    }, 2000);
   }
 
   async showAdd() {
